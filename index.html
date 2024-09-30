@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Bento grid</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @font-face {
+        font-family: "DMSans";
+        src: url("assets/fonts/static/MSans-VariableFont_opsz,wght.ttf")
+          format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "DMSans";
+        src: url("/static/DMSans-Italic-VariableFont_opsz,wght.ttf")
+          format("truetype");
+        font-weight: normal;
+        font-style: italic;
+      }
+      :root {
+        /* Purple */
+        --purple-100: hsl(254, 88%, 90%);
+        --purple-500: hsl(256, 67%, 59%);
+
+        /* Yellow */
+        --yellow-100: hsl(31, 66%, 93%);
+        --yellow-500: hsl(39, 100%, 71%);
+
+        /* Neutros */
+        --white: hsl(0, 0%, 100%);
+        --black: hsl(0, 0%, 7%);
+
+        /* Cinza */
+        --cinza: #f4f5f7;
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      body {
+        background-color: var(--cinza);
+        font-family: "DMSans", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: grid;
+        grid-gap: 20px;
+        padding: 20px;
+      }
+
+      h1,
+      h2 {
+        font-family: "DMSans", sans-serif;
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      @media (max-width: 375px) {
+        .container {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+        }
+        .card {
+          border-radius: 10px;
+          padding: 1rem;
+        }
+        .card-midia {
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+          /* background-color: var(--purple-500); */
+          background-color: #7651dc;
+          text-align: center;
+          color: white;
+        }
+        .card-midia span {
+          color: var(--yellow-500);
+        }
+        .card-midia img {
+          width: 10rem;
+        }
+        .card-midia p {
+          color: var(--yellow-100);
+        }
+
+        .card-multiple {
+          background-color: white;
+          padding: 1rem;
+        }
+
+        .card-multiple img {
+          width: 18rem;
+          align-items: center;
+        }
+        .card-posting-schedule {
+          background-color: var(--yellow-500);
+          padding-left: 1rem;
+          padding-right: 1rem;
+          padding-top: 0.25rem;
+        }
+
+        .card-posting-schedule img {
+          width: 10rem;
+          align-items: center;
+        }
+        .card-social-media {
+          background-color: var(--purple-100);
+          padding-top: 1rem;
+          /* padding-left: 0rem; */
+          text-align: center;
+          padding-bottom: 1rem;
+        }
+
+        .card-social-media img {
+          width: 18rem;
+        }
+
+        .card-follower {
+          background-color: dodgerblue;
+          padding: 1rem;
+          text-align: center;
+        }
+
+        .card-follower img {
+          width: 15rem;
+        }
+
+        .card-follower h2 {
+          color: var(--white);
+        }
+
+        .card-audience {
+          background-color: var(--white);
+          padding: 1rem;
+        }
+        .card-audience img {
+          width: 10rem;
+        }
+        .card-quicker {
+          background-color: #faeee2;
+          padding: 1rem;
+        }
+
+        .card-quicker h2 span {
+          color: var(--purple-500);
+        }
+
+        .card-quicker img {
+          width: 10rem;
+        }
+        .card-using-ai {
+          background-color: var(--yellow-500);
+          padding: 1rem;
+        }
+
+        .card-using-ai img {
+          width: 15rem;
+        }
+      }
+
+      @media (min-width: 375px) and (max-width: 768px) {
+        .container {
+          padding: 20px;
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "block2"
+            "block5"
+            "block6"
+            "block3"
+            "block8"
+            "block7"
+            "block1"
+            "block4";
+        }
+        .block1 {
+          grid-area: block1;
+          border-radius: 10px;
+          background-color: var(--yellow-100);
+          padding: 1rem;
+        }
+        .block2 {
+          grid-area: block2;
+          text-align: center;
+          font-size: 30px;
+          background-color: var(--purple-500);
+          color: var(--white);
+          border-radius: 10px;
+          padding: 1rem;
+        }
+        .block3 {
+          grid-area: block3;
+        }
+
+        .block4 {
+          grid-area: block4;
+          background-color: var(--yellow-500);
+          padding: 1rem;
+          border-radius: 10px;
+        }
+        .block5 {
+          grid-area: block5;
+          background-color: var(--white);
+          padding: 1rem;
+          border-radius: 10px;
+        }
+        .block6 {
+          grid-area: block6;
+          font-size: 30px;
+          background-color: var(--yellow-500);
+          padding: 1rem;
+        }
+        .block7 {
+          grid-area: block7;
+          background-color: var(--white);
+          border-radius: 10px;
+          padding: 1rem;
+        }
+        .block8 {
+          grid-area: block8;
+          background-color: var(--purple-500);
+          color: var(--white);
+          padding: 1rem;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .container {
+          grid-template-columns: 1fr 1fr;
+          padding: 20px;
+
+          grid-template-areas:
+            "block2 block5"
+            "block6 block3"
+            "block8 block7"
+            "block1 block4";
+        }
+        .block1 {
+          grid-area: block1;
+          border-radius: 10px;
+          background-color: var(--yellow-100);
+          padding: 1rem;
+        }
+        .block2 {
+          grid-area: block2;
+          text-align: center;
+          font-size: 30px;
+          background-color: var(--purple-500);
+          color: var(--white);
+          border-radius: 10px;
+          padding: 1rem;
+        }
+        .block3 {
+          grid-area: block3;
+        }
+
+        .block4 {
+          grid-area: block4;
+          background-color: var(--yellow-500);
+          padding: 1rem;
+          border-radius: 10px;
+        }
+        .block5 {
+          grid-area: block5;
+          background-color: var(--white);
+          padding: 1rem;
+          border-radius: 10px;
+        }
+        .block6 {
+          grid-area: block6;
+          font-size: 30px;
+          background-color: var(--yellow-500);
+          padding: 1rem;
+        }
+        .block7 {
+          grid-area: block7;
+          background-color: var(--white);
+          border-radius: 10px;
+          padding: 1rem;
+        }
+        .block8 {
+          grid-area: block8;
+          background-color: var(--purple-500);
+          color: var(--white);
+          padding: 1rem;
+        }
+      }
+
+      @media (min-width: 1025px) and (max-width: 1440px) {
+        .container {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-areas:
+            "block2 block5 block6"
+            "block3 block8 block7"
+            "block1 block4 block4";
+        }
+
+        .block1 {
+          grid-area: block1;
+          border-radius: 10px;
+          background-color: var(--yellow-100);
+          padding: 1rem;
+        }
+        .block2 {
+          grid-area: block2;
+          text-align: center;
+          font-size: 30px;
+          background-color: var(--purple-500);
+          color: var(--white);
+          border-radius: 10px;
+          padding: 1rem;
+        }
+        .block3 {
+          grid-area: block3;
+        }
+
+        .block4 {
+          grid-area: block4;
+          background-color: var(--yellow-500);
+          padding: 1rem;
+          border-radius: 10px;
+        }
+        .block5 {
+          grid-area: block5;
+          background-color: var(--white);
+          padding: 1rem;
+          border-radius: 10px;
+        }
+        .block6 {
+          grid-area: block6;
+          font-size: 30px;
+          background-color: var(--yellow-500);
+          padding: 1rem;
+        }
+        .block7 {
+          grid-area: block7;
+          background-color: var(--white);
+          border-radius: 10px;
+          padding: 1rem;
+        }
+        .block8 {
+          grid-area: block8;
+          background-color: var(--purple-500);
+          color: var(--white);
+          padding: 1rem;
+        }
+      }
+      @media (min-width: 1441px) {
+        .container {
+          grid-template-columns: repeat(4, 1fr);
+          /* grid-template-rows: repeat(3, 1fr); */
+          grid-template-areas:
+            "block1 block2 block2 block3"
+            "block1 block5 block6 block3"
+            "block4 block5 block6 block3"
+            "block4 block7 block8 block8";
+
+          grid-gap: 1rem;
+        }
+        .block1 {
+          /* grid-area: 1 / 1 / 1fr / 1; */
+          grid-area: block1;
+          background-color: var(--yellow-100);
+          padding: 2rem;
+          text-align: center;
+          border-radius: 10px;
+        }
+        .block2 {
+          padding: 2rem;
+          grid-area: block2;
+          color: var(--white);
+          text-align: center;
+          background-color: var(--purple-500);
+          border: 1px solid green;
+          border-radius: 10px;
+          font-size: 40px;
+        }
+
+        .block2 span {
+          color: var(--yellow-500);
+        }
+
+        .block3 {
+          padding: 2rem;
+          grid-area: block3;
+          background-color: var(--purple-100);
+          border-radius: 10px;
+        }
+
+        .block4 {
+          padding: 2rem;
+          grid-area: block4; /* Começa na metade da linha 2 e vai até a linha 4 */
+          background-color: var(--yellow-500);
+          border-radius: 10px;
+        }
+
+        .block5 {
+          padding: 2rem;
+          grid-area: block5;
+          background-color: var(--white);
+          border-radius: 10px;
+        }
+
+        .block6 {
+          padding: 1rem;
+          grid-area: block6;
+          background-color: var(--yellow-500);
+          border-radius: 10px;
+        }
+
+        .block7 {
+          padding: 2rem;
+          grid-area: block7;
+          background-color: var(--white);
+          border-radius: 10px;
+        }
+        .block8 {
+          display: flex;
+          align-items: center;
+          padding: 2rem;
+          font-size: 45px;
+
+          color: var(--white);
+          grid-area: block8;
+          background-color: var(--purple-500);
+          border-radius: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card card-midia block2">
+        <h1>Social Media <br /><span>10x</span> <i>Faster</i> <br />with AI</h1>
+        <img src="assets/images/illustration-five-stars.webp" alt="" />
+        <p>Over 4,000 5-star reviews</p>
+      </div>
+      <div class="card card-multiple block5">
+        <img src="assets/images/illustration-multiple-platforms.webp" alt="" />
+        <h2>Manage multiple accounts and platforms.</h2>
+      </div>
+      <div class="card card-posting-schedule block6">
+        <h2>Maintain a consistent posting schedule.</h2>
+        <img src="assets/images/illustration-consistent-schedule.webp" alt="" />
+      </div>
+      <div class="card card-social-media block3">
+        <h2>Schedule to social media.</h2>
+        <img src="assets/images/illustration-schedule-posts.webp" alt="" />
+        <p>
+          <b
+            >Optimize post timings to publish <br />
+            content at the perfect time for <br />
+            your audience.</b
+          >
+        </p>
+      </div>
+      <div class="card card-follower block8">
+        <img src="assets/images/illustration-grow-followers.webp" alt="" />
+        <h2>
+          Grow followers <br />
+          with non-stop <br />
+          content.
+        </h2>
+      </div>
+      <div class="card card-audience block7">
+        <h2>>56%</h2>
+        <p>faster audience growth</p>
+        <img src="assets/images/illustration-audience-growth.webp" alt="" />
+      </div>
+      <div class="card card-quicker block1">
+        <h2>
+          Create and schedule content <span><i>quicker.</i></span>
+        </h2>
+        <img src="assets/images/illustration-create-post.webp" alt="" />
+      </div>
+      <div class="card card-using-ai block4">
+        <h2>
+          Write your content <br />
+          using AI.
+        </h2>
+        <img src="assets/images/illustration-ai-content.webp" alt="" />
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Elicarlos Ferreira</a>.
+    </div>
+  </body>
+</html>
